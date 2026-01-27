@@ -1004,6 +1004,8 @@ Security hardening (S1-S5) is required for v1.0.0 launch. Ship secure, not fast.
 | 2026-01-27 | push | `f020386` | → origin/main | CI/CD workflow added |
 | 2026-01-27 | commit | `f92bdee` | [cw] Improve account pages UI | Capitalize plans, official OS logos, masked keys with toggle |
 | 2026-01-27 | push | `f92bdee` | → origin/main | Account pages UI improvements |
+| 2026-01-27 | commit | `1edf7ac` | [cw] Add external link icons and Metrics® trademark | ExternalLink icons, ® on all Metrics mentions |
+| 2026-01-27 | push | `1edf7ac` | → origin/main | External links + trademark |
 
 ---
 
