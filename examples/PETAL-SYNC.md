@@ -1006,6 +1006,8 @@ Security hardening (S1-S5) is required for v1.0.0 launch. Ship secure, not fast.
 | 2026-01-27 | push | `f92bdee` | → origin/main | Account pages UI improvements |
 | 2026-01-27 | commit | `1edf7ac` | [cw] Add external link icons and Metrics® trademark | ExternalLink icons, ® on all Metrics mentions |
 | 2026-01-27 | push | `1edf7ac` | → origin/main | External links + trademark |
+| 2026-01-27 | commit | `d47b424` | [cw] Add Google Analytics integration | GA4 component, loads when measurement ID configured |
+| 2026-01-27 | push | `d47b424` | → origin/main | Google Analytics |
 
 ---
 
@@ -1030,6 +1032,8 @@ Security hardening (S1-S5) is required for v1.0.0 launch. Ship secure, not fast.
 | Generate installer hashes | Run `sha256sum` on each installer file | Needed for binary integrity check (S5) | 2026-01-27 |
 | Set BINARY_HASH env vars | Set `BINARY_VERSION`, `BINARY_HASH_WINDOWS_X64`, `BINARY_HASH_MACOS_ARM64`, `BINARY_HASH_LINUX_AMD64`, `BINARY_HASHES_UPDATED_AT` | After generating hashes | 2026-01-27 |
 | Set NEXT_PUBLIC_SITE_URL for Production | Currently only set for Preview/Development | Required for correct URLs in production | 2026-01-27 |
+| Create Google Analytics 4 property | Create GA4 property at analytics.google.com | For site analytics | 2026-01-27 |
+| Set NEXT_PUBLIC_GA_MEASUREMENT_ID | Add GA4 measurement ID (G-XXXXXXXXXX) to Vercel Production env vars | Activates Google Analytics tracking | 2026-01-27 |
 
 ### Completed
 
