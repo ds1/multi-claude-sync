@@ -241,9 +241,72 @@ Tasks that require the user (not Claude) to execute. Claude sends a system notif
 
 **Process:**
 1. Claude adds item to "User Action Items > Pending" table
-2. Claude sends system notification with action + context
+2. Claude sends system notification with action + context (see System Notifications below)
 3. User executes the action
-4. User (or Claude) moves item to "Completed"
+4. User responds via notification (Acknowledge/Completed)
+5. Claude updates sync file based on response
+
+### System Notifications (Windows)
+
+When adding items to "User Action Items", Claude should send a system notification to alert the user. This ensures actions aren't missed when the user is working in another window.
+
+**Script Location:** `scripts/notify-windows.ps1`
+
+**Usage:**
+
+```powershell
+# Build the notification details
+$details = @"
+FILE:
+supabase/migrations/20260127_example.sql
+
+STEPS:
+1. Open Supabase Dashboard
+2. Go to SQL Editor
+3. Paste contents of the file above
+4. Click Run
+
+WHY:
+Creates example_table for feature X.
+"@
+
+# Show notification (inline execution)
+powershell -ExecutionPolicy Bypass -Command "& {
+    # ... (full script content)
+    `$titleLabel.Text = 'ACTION: Run database migration'
+    `$detailsBox.Text = '$details'
+    # ...
+}"
+```
+
+**Notification Features:**
+- Topmost window (floats above other windows)
+- Scrollable details panel (250px height)
+- Response text field with Enter key to quick-acknowledge
+- Screenshot paste support (Ctrl+V)
+- Three action buttons:
+  - **Acknowledge** - User has seen it, will do later (task stays pending)
+  - **Completed** - User finished the action (Claude updates task status)
+  - **Dismiss** - Close without responding
+
+**Response Handling:**
+
+The script outputs JSON that Claude can parse:
+```json
+{"Action":"completed","Response":"Migration ran successfully","Screenshot":"C:\\...\\screenshot.png"}
+```
+
+Claude should:
+1. If `Action` is "completed": Move item to "Completed" in sync file, update related task statuses
+2. If `Action` is "acknowledged": Keep item in "Pending", note user has seen it
+3. If `Action` is "dismissed": Keep item in "Pending", may need to re-notify later
+4. If `Screenshot` is provided: Read the image file for context
+
+**Best Practices:**
+- Include clear step-by-step instructions in the details
+- Explain WHY the action is needed
+- Reference specific files or commands
+- Keep titles short and action-oriented (e.g., "ACTION: Run migration")
 
 ### Attention Needed
 
@@ -467,3 +530,4 @@ done
 | `SYNC.md` | Shared sync file (in workspace root) |
 | `WORKFLOW-GUIDE.md` | This guide |
 | `project/CLAUDE.md` | Project-specific context + sync instructions |
+| `scripts/notify-windows.ps1` | Windows system notification script |
