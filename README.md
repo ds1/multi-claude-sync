@@ -105,6 +105,29 @@ Claude A needs info from Claude B:
 4. You tell Claude A: "Check the sync file for response"
 ```
 
+### Pre-Push Alignment Review
+
+Before pushing, verify both sides are compatible:
+
+1. Each Claude lists unpushed commits in Commit/Push Log
+2. One Claude creates alignment table (API → Client mappings)
+3. Other Claude confirms: "✅ CONFIRMED ALIGNED"
+4. Both push after confirmation
+
+This catches API contract drift before it ships. Zero integration conflicts when both sides verify.
+
+### Sprint Retrospective
+
+At end of session, conduct cross-review:
+
+1. Each Claude writes summary of accomplishments
+2. Share summaries between instances for review
+3. Each notes corrections/additions to the other's summary
+4. Iterate until consensus reached
+5. Combined summaries become official record
+
+**Why this matters:** Two perspectives catch omissions. The retro often reveals the "meta-accomplishment" - not just code shipped, but process improvements made.
+
 ## Tips
 
 - **Start every session** by having Claude read the sync file

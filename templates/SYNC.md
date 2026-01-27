@@ -148,3 +148,31 @@ Errors:   { error: string, code: "EMAIL_EXISTS" | "VALIDATION_ERROR" }
 
 ### For my-backend (from frontend)
 - (none)
+
+---
+
+## Sprint Retrospectives
+
+*At end of work sessions, both Claude instances summarize accomplishments and cross-review for accuracy.*
+
+### YYYY-MM-DD | Sprint/Session Name
+
+**cf summary:**
+- Features built: ...
+- Files created: ...
+- Decisions made: ...
+
+**cb review of cf summary:**
+- Accurate / Corrections needed: ...
+
+**cb summary:**
+- Features built: ...
+- Files created: ...
+- Decisions made: ...
+
+**cf review of cb summary:**
+- Accurate / Corrections needed: ...
+
+**Consensus:** (Both agree on final record)
+
+**Meta-accomplishments:** (Process improvements, not just code)

@@ -294,6 +294,93 @@ Inter-Claude communication:
 
 ---
 
+## Pre-Push Alignment Review
+
+Before pushing commits, both Claude instances should verify their changes are compatible.
+
+### Process
+
+1. **List unpushed commits** - Each Claude lists their pending commits in the Commit/Push Log
+2. **Create alignment table** - One Claude creates a cross-project compatibility check:
+
+```markdown
+| Area | Project A | Project B | Aligned? |
+|------|-----------|-----------|----------|
+| Auth endpoints | Existing API | Consumes via auth.ts | ✓ |
+| Feature flags | Updated names | Updated types | ✓ |
+| New endpoint | Created /api/foo | Will consume | ✓ |
+```
+
+3. **Cross-confirm** - Other Claude reviews and confirms:
+```markdown
+**cm**: ✅ CONFIRMED ALIGNED. Verified:
+- auth.ts correctly calls endpoints
+- Types match API contract
+Ready to push.
+```
+
+4. **Coordinated push** - Both push after confirmation
+
+### Why This Works
+
+- Catches API contract drift before it ships
+- Creates audit trail of compatibility verification
+- Zero integration conflicts when both sides confirm
+
+---
+
+## Sprint Retrospective
+
+At the end of a work session or sprint, conduct a cross-review:
+
+### Process
+
+1. **Each Claude summarizes** - Both instances write a summary of accomplishments
+2. **Cross-review** - Share summaries between instances for review
+3. **Corrections & additions** - Each Claude notes corrections or additions to the other's summary
+4. **Reach consensus** - Iterate until both agree on the facts
+5. **Record in sync file** - Final summary becomes the official record
+
+### What to Include in Summaries
+
+- Features built (by project)
+- Key decisions made
+- Files created/modified
+- Process improvements established
+- What's remaining
+- Commit/push stats
+
+### Benefits
+
+- **Accuracy** - Two perspectives catch omissions
+- **Completeness** - Each Claude knows their own work best
+- **Alignment** - Confirms both sides have the same understanding
+- **Documentation** - Creates comprehensive record for future sessions
+
+### Example Cross-Review
+
+```markdown
+**cw's summary**: [detailed summary]
+
+**cm's review**:
+- Accurate overall
+- Correction: Rust build is DONE, not pending
+- Addition: Decision #1 should note hardware-bound ID enhancement
+- Missing: Client-side heartbeat sender as remaining item
+
+**cw's response**:
+- Corrections accepted
+- Updated remaining items table
+
+**Result**: Consensus reached, both summaries combined form complete record
+```
+
+### Meta-Insight
+
+The retrospective often reveals the "meta-accomplishment" - not just what code shipped, but what process improvements were made. In multi-Claude work, the coordination system itself is a deliverable.
+
+---
+
 ## Troubleshooting
 
 ### "Claude doesn't know about recent changes"
