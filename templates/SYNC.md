@@ -139,6 +139,21 @@ Errors:   { error: string, code: "EMAIL_EXISTS" | "VALIDATION_ERROR" }
 
 ---
 
+## User Action Items
+
+*Pending actions that require user to execute. Claude instances: send system notification when adding items here.*
+
+### Pending
+
+| Item | Action | Context | Added |
+|------|--------|---------|-------|
+| | | | |
+
+### Completed
+*(move items here when done)*
+
+---
+
 ## Attention Needed
 
 *Flag items here when you need the other project's Claude to review/respond. Check your section at session start.*

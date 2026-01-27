@@ -217,6 +217,34 @@ Items requiring YOUR decision (Claude alerts you):
 1. **Database choice** - PostgreSQL vs MySQL? Need decision before proceeding with schema.
 ```
 
+### User Action Items
+
+Tasks that require the user (not Claude) to execute. Claude sends a system notification when adding items.
+
+```markdown
+## User Action Items
+
+*Pending actions that require user to execute. Claude: send system notification when adding items.*
+
+### Pending
+
+| Item | Action | Context | Added |
+|------|--------|---------|-------|
+| Run migration | Execute `migrations/001.sql` | Required for new API endpoint | 2026-01-27 |
+| Set env var | Add `API_KEY=xxx` to Vercel | Needed for production deploy | 2026-01-27 |
+
+### Completed
+*(move items here when done)*
+```
+
+**When to use:** Database migrations, environment variable setup, external service configuration, deployment steps, or any action requiring access/permissions Claude doesn't have.
+
+**Process:**
+1. Claude adds item to "User Action Items > Pending" table
+2. Claude sends system notification with action + context
+3. User executes the action
+4. User (or Claude) moves item to "Completed"
+
 ### Attention Needed
 
 Inter-Claude communication:
