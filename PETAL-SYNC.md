@@ -259,6 +259,20 @@ Ask dan for test account credentials, or create one via the website UI at `http:
 
 ## Sync Log
 
+### 2026-02-03 | petal-tech-website | Refund policy and Google Merchants setup
+- **New Page**: `/legal/refunds` - Refund and cancellation policy
+  - No refunds on digital software subscriptions
+  - Cancel anytime, access until end of billing period
+  - Plan upgrade/downgrade behavior documented
+  - Exceptional circumstances clause
+- **Google Merchants**: `docs/google-merchants-product-descriptions.txt`
+  - SEO-optimized product descriptions for Basic, Standard, Advanced plans
+  - Keyword-rich content for discoverability
+  - Form field values for all three product listings
+- **Footer**: Added refund policy link
+- **Sitemap**: Added `/legal/refunds` route
+- **Commit**: `7a642ce`
+
 ### 2026-02-03 | petal-tech-website | SEO optimizations complete
 - **Implementation Plan**: `docs/SEO-OPTIMIZATION-PLAN.md`
 - **Status**: ✅ Complete (100% - 27/27 items)
@@ -1342,6 +1356,8 @@ Security hardening (S1-S5) is required for v1.0.0 launch. Ship secure, not fast.
 | 2026-02-03 | push | `0b4af1d` | → origin/main | SEO Phase 1-3 deployed |
 | 2026-02-03 | commit | `e5161e4` | Add canonical URLs and optimize 404 page metadata | Final SEO fixes: reset-password, auth/error, not-found |
 | 2026-02-03 | push | `e5161e4` | → origin/main | SEO 100% complete |
+| 2026-02-03 | commit | `7a642ce` | Add refund policy page and Google Merchants product descriptions | /legal/refunds, footer link, sitemap, product descriptions |
+| 2026-02-03 | push | `7a642ce` | → origin/main | Refund policy live |
 
 ### petal-metrics (cm)
 
