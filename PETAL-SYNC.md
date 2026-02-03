@@ -1362,6 +1362,14 @@ Security hardening (S1-S5) is required for v1.0.0 launch. Ship secure, not fast.
 | 2026-02-03 | push | `75c13a6` | → origin/main | Google Merchants structured data fix |
 | 2026-02-03 | commit | `a86325d` | Add shippingDetails to structured data offers | Digital delivery: free, instant (0-day) |
 | 2026-02-03 | push | `a86325d` | → origin/main | Google Merchants shippingDetails fix |
+| 2026-02-03 | commit | `9c56d39` | Add 301 redirects for legacy URLs | /sdk-for-muse, /metrics-api, /downloads, /licenses/api-developer-pro, /resources |
+| 2026-02-03 | push | `9c56d39` | → origin/main | Legacy redirects batch 1 |
+| 2026-02-03 | commit | `173f71b` | Add more 301 redirects for legacy URLs | /labs, /licenses, /downloads/metrics-* |
+| 2026-02-03 | push | `173f71b` | → origin/main | Legacy redirects batch 2 |
+| 2026-02-03 | commit | `d1200d6` | Make sitemap lastModified date dynamic | Uses new Date() instead of static |
+| 2026-02-03 | push | `d1200d6` | → origin/main | Dynamic sitemap dates |
+| 2026-02-03 | commit | `29156e9` | Add redirects for /developers and /requested-access | Both redirect to homepage |
+| 2026-02-03 | push | `29156e9` | → origin/main | Legacy redirects batch 3 |
 
 ### petal-metrics (cm)
 
