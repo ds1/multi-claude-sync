@@ -1358,6 +1358,10 @@ Security hardening (S1-S5) is required for v1.0.0 launch. Ship secure, not fast.
 | 2026-02-03 | push | `e5161e4` | → origin/main | SEO 100% complete |
 | 2026-02-03 | commit | `7a642ce` | Add refund policy page and Google Merchants product descriptions | /legal/refunds, footer link, sitemap, product descriptions |
 | 2026-02-03 | push | `7a642ce` | → origin/main | Refund policy live |
+| 2026-02-03 | commit | `75c13a6` | Add hasMerchantReturnPolicy to structured data offers | MerchantReturnNotPermitted, links to /legal/refunds |
+| 2026-02-03 | push | `75c13a6` | → origin/main | Google Merchants structured data fix |
+| 2026-02-03 | commit | `a86325d` | Add shippingDetails to structured data offers | Digital delivery: free, instant (0-day) |
+| 2026-02-03 | push | `a86325d` | → origin/main | Google Merchants shippingDetails fix |
 
 ### petal-metrics (cm)
 
