@@ -259,6 +259,22 @@ Ask dan for test account credentials, or create one via the website UI at `http:
 
 ## Sync Log
 
+### 2026-02-03 | petal-tech-website | SEO optimizations complete
+- **Implementation Plan**: `docs/SEO-OPTIMIZATION-PLAN.md`
+- **Status**: ✅ Complete (100% - 27/27 items)
+- **Changes Made**:
+  - Canonical URLs added to all public pages (homepage, pricing, contact, login, signup, reset-password, auth/error, legal/privacy, legal/terms)
+  - 404 page optimized with metadata and `robots: { index: false }`
+  - Structured data schemas: Organization, SoftwareApplication, WebSite, VideoObject (homepage), FAQPage (pricing)
+  - Sitemap expanded to 8 routes with proper priorities
+  - LLM discoverability: `public/llms-full.txt` (201 lines, 7.5KB)
+  - Footer logo lazy loading
+- **Commits**: `0b4af1d`, `e5161e4`
+- **Manual Actions Required**:
+  1. Submit sitemap to Google Search Console: `https://petal.tech/sitemap.xml`
+  2. Submit sitemap to Bing Webmaster Tools
+  3. Test structured data at https://search.google.com/test/rich-results
+
 ### 2026-02-03 | petal-metrics | GitHub Device Flow authentication implemented
 - **GitHub Device Flow**: Complete OAuth flow for desktop app authentication
   - `src/services/github.ts`: New service using Tauri HTTP plugin to bypass CORS
@@ -1322,6 +1338,10 @@ Security hardening (S1-S5) is required for v1.0.0 launch. Ship secure, not fast.
 | 2026-02-03 | push | `eccb056` | → origin/main | Hero video updated |
 | 2026-02-03 | commit | `c5e2425` | Replace Vercel favicon with Petal logo | Custom favicon |
 | 2026-02-03 | push | `c5e2425` | → origin/main | Favicon updated |
+| 2026-02-03 | commit | `0b4af1d` | Add SEO optimizations and LLM discoverability enhancements | Structured data, canonical URLs, sitemap expansion, llms-full.txt |
+| 2026-02-03 | push | `0b4af1d` | → origin/main | SEO Phase 1-3 deployed |
+| 2026-02-03 | commit | `e5161e4` | Add canonical URLs and optimize 404 page metadata | Final SEO fixes: reset-password, auth/error, not-found |
+| 2026-02-03 | push | `e5161e4` | → origin/main | SEO 100% complete |
 
 ### petal-metrics (cm)
 
@@ -1438,6 +1458,10 @@ Security hardening (S1-S5) is required for v1.0.0 launch. Ship secure, not fast.
 | 2026-01-29 | push | `f6cd10a` | → origin/main | Docs updated for new features |
 | 2026-02-03 | commit | `48017df` | Fix Metrics® from trademark to service mark in footer | cw on behalf of cd |
 | 2026-02-03 | push | `48017df` | → origin/main | Footer copyright corrected |
+| 2026-02-03 | commit | `57d51af` | Update docs for GitHub login and settings persistence | 8 files updated, GitHub auth + settings tips |
+| 2026-02-03 | push | `57d51af` | → origin/main | Docs synced with cm changes |
+| 2026-02-03 | commit | `9eba50b` | Add detailed GitHub login flow and plan selection docs | Step-by-step Device Flow, plan feature comparison |
+| 2026-02-03 | push | `9eba50b` | → origin/main | GitHub login + plan selection documented |
 
 ---
 
