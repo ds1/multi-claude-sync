@@ -259,6 +259,36 @@ Ask dan for test account credentials, or create one via the website UI at `http:
 
 ## Sync Log
 
+### 2026-02-03 | petal-tech-website | Refund policy and Google Merchants setup
+- **New Page**: `/legal/refunds` - Refund and cancellation policy
+  - No refunds on digital software subscriptions
+  - Cancel anytime, access until end of billing period
+  - Plan upgrade/downgrade behavior documented
+  - Exceptional circumstances clause
+- **Google Merchants**: `docs/google-merchants-product-descriptions.txt`
+  - SEO-optimized product descriptions for Basic, Standard, Advanced plans
+  - Keyword-rich content for discoverability
+  - Form field values for all three product listings
+- **Footer**: Added refund policy link
+- **Sitemap**: Added `/legal/refunds` route
+- **Commit**: `7a642ce`
+
+### 2026-02-03 | petal-tech-website | SEO optimizations complete
+- **Implementation Plan**: `docs/SEO-OPTIMIZATION-PLAN.md`
+- **Status**: ✅ Complete (100% - 27/27 items)
+- **Changes Made**:
+  - Canonical URLs added to all public pages (homepage, pricing, contact, login, signup, reset-password, auth/error, legal/privacy, legal/terms)
+  - 404 page optimized with metadata and `robots: { index: false }`
+  - Structured data schemas: Organization, SoftwareApplication, WebSite, VideoObject (homepage), FAQPage (pricing)
+  - Sitemap expanded to 8 routes with proper priorities
+  - LLM discoverability: `public/llms-full.txt` (201 lines, 7.5KB)
+  - Footer logo lazy loading
+- **Commits**: `0b4af1d`, `e5161e4`
+- **Manual Actions Required**:
+  1. Submit sitemap to Google Search Console: `https://petal.tech/sitemap.xml`
+  2. Submit sitemap to Bing Webmaster Tools
+  3. Test structured data at https://search.google.com/test/rich-results
+
 ### 2026-02-03 | petal-metrics | GitHub Device Flow authentication implemented
 - **GitHub Device Flow**: Complete OAuth flow for desktop app authentication
   - `src/services/github.ts`: New service using Tauri HTTP plugin to bypass CORS
@@ -1318,6 +1348,30 @@ Security hardening (S1-S5) is required for v1.0.0 launch. Ship secure, not fast.
 | 2026-02-03 | push | `17b5eb6` | → origin/main | Pricing updates deployed |
 | 2026-02-03 | commit | `de451c3` | Update plan descriptions for Basic and Standard tiers | Basic: hobbyists/tinkerers, Standard: researchers/developers |
 | 2026-02-03 | push | `de451c3` | → origin/main | Plan descriptions updated |
+| 2026-02-03 | commit | `eccb056` | Update hero video with filtered EEG recording demo | New video showing filtered EEG recording |
+| 2026-02-03 | push | `eccb056` | → origin/main | Hero video updated |
+| 2026-02-03 | commit | `c5e2425` | Replace Vercel favicon with Petal logo | Custom favicon |
+| 2026-02-03 | push | `c5e2425` | → origin/main | Favicon updated |
+| 2026-02-03 | commit | `0b4af1d` | Add SEO optimizations and LLM discoverability enhancements | Structured data, canonical URLs, sitemap expansion, llms-full.txt |
+| 2026-02-03 | push | `0b4af1d` | → origin/main | SEO Phase 1-3 deployed |
+| 2026-02-03 | commit | `e5161e4` | Add canonical URLs and optimize 404 page metadata | Final SEO fixes: reset-password, auth/error, not-found |
+| 2026-02-03 | push | `e5161e4` | → origin/main | SEO 100% complete |
+| 2026-02-03 | commit | `7a642ce` | Add refund policy page and Google Merchants product descriptions | /legal/refunds, footer link, sitemap, product descriptions |
+| 2026-02-03 | push | `7a642ce` | → origin/main | Refund policy live |
+| 2026-02-03 | commit | `75c13a6` | Add hasMerchantReturnPolicy to structured data offers | MerchantReturnNotPermitted, links to /legal/refunds |
+| 2026-02-03 | push | `75c13a6` | → origin/main | Google Merchants structured data fix |
+| 2026-02-03 | commit | `a86325d` | Add shippingDetails to structured data offers | Digital delivery: free, instant (0-day) |
+| 2026-02-03 | push | `a86325d` | → origin/main | Google Merchants shippingDetails fix |
+| 2026-02-03 | commit | `9c56d39` | Add 301 redirects for legacy URLs | /sdk-for-muse, /metrics-api, /downloads, /licenses/api-developer-pro, /resources |
+| 2026-02-03 | push | `9c56d39` | → origin/main | Legacy redirects batch 1 |
+| 2026-02-03 | commit | `173f71b` | Add more 301 redirects for legacy URLs | /labs, /licenses, /downloads/metrics-* |
+| 2026-02-03 | push | `173f71b` | → origin/main | Legacy redirects batch 2 |
+| 2026-02-03 | commit | `d1200d6` | Make sitemap lastModified date dynamic | Uses new Date() instead of static |
+| 2026-02-03 | push | `d1200d6` | → origin/main | Dynamic sitemap dates |
+| 2026-02-03 | commit | `29156e9` | Add redirects for /developers and /requested-access | Both redirect to homepage |
+| 2026-02-03 | push | `29156e9` | → origin/main | Legacy redirects batch 3 |
+| 2026-02-03 | commit | `cf455f9` | Restrict Google Analytics to production domains only | Hostname check prevents data pollution from Vercel previews |
+| 2026-02-03 | push | `cf455f9` | → origin/main | GA production-only fix |
 
 ### petal-metrics (cm)
 
@@ -1404,6 +1458,17 @@ Security hardening (S1-S5) is required for v1.0.0 launch. Ship secure, not fast.
 | 2026-02-03 | commit | `c58c354` | Add auth gate splash screen with interactive states | AuthScreen, Google Fonts, petal.tech-style hover effects |
 | 2026-02-03 | commit | `0cb79f4` | Fix registered trademark symbol positioning | Match website ® placement |
 | 2026-02-03 | commit | `91612ec` | Enhance auth screen with animations, external links, and UX improvements | Entrance animations, external link icons, show/hide password, dynamic version |
+| 2026-02-03 | commit | `e917543` | Restyle SelectPlanScreen to match auth splash page | Consistent styling |
+| 2026-02-03 | commit | `2913e6a` | Fix login flash: fetch subscription before setting user | UX improvement |
+| 2026-02-03 | commit | `658a586` | Add tooltips showing destination URLs for external links | UX improvement |
+| 2026-02-03 | commit | `2706b32` | Add GitHub Device Flow authentication | GitHub OAuth via Device Flow |
+| 2026-02-03 | push | `2706b32` | → origin/main | GitHub Device Flow shipped |
+| 2026-02-03 | commit | `35eff9e` | Fix PPG visualization by normalizing data | Subtract mean to center around zero |
+| 2026-02-03 | commit | `b426838` | Add settings persistence across sessions | Tauri Store for filter/OSC/LSL/webhook/logging settings |
+| 2026-02-03 | push | `b426838` | → origin/main | PPG fix + settings persistence |
+| 2026-02-03 | commit | `f3965e5` | Fix TypeScript errors in OutputSettings | useCallback import, currentDir→outputDirectory |
+| 2026-02-03 | push | `f3965e5` | → origin/main | Build fix for v1.0.0 release |
+| 2026-02-03 | CI | `21626331994` | Multi-platform build via workflow_dispatch | All 4 platforms built, uploaded to Vercel Blob |
 
 ### petal-docs (cd)
 
@@ -1421,6 +1486,12 @@ Security hardening (S1-S5) is required for v1.0.0 launch. Ship secure, not fast.
 | 2026-01-28 | push | `4c231b4` | → origin/main | All platforms documented |
 | 2026-01-29 | commit | `f6cd10a` | Add signal filtering docs and update streaming/recording controls | New signal-filtering.md, updated sidebar instructions |
 | 2026-01-29 | push | `f6cd10a` | → origin/main | Docs updated for new features |
+| 2026-02-03 | commit | `48017df` | Fix Metrics® from trademark to service mark in footer | cw on behalf of cd |
+| 2026-02-03 | push | `48017df` | → origin/main | Footer copyright corrected |
+| 2026-02-03 | commit | `57d51af` | Update docs for GitHub login and settings persistence | 8 files updated, GitHub auth + settings tips |
+| 2026-02-03 | push | `57d51af` | → origin/main | Docs synced with cm changes |
+| 2026-02-03 | commit | `9eba50b` | Add detailed GitHub login flow and plan selection docs | Step-by-step Device Flow, plan feature comparison |
+| 2026-02-03 | push | `9eba50b` | → origin/main | GitHub login + plan selection documented |
 
 ---
 
@@ -1462,7 +1533,7 @@ Security hardening (S1-S5) is required for v1.0.0 launch. Ship secure, not fast.
 | Item | Action | Context | Status |
 |------|--------|---------|--------|
 | Set NEXT_PUBLIC_SITE_URL for Production | Set to `https://petal.tech` | Required for correct URLs in production | ✅ DONE |
-| Update Google Analytics Measurement ID | Set to `G-16T7ZPMTWK` | Correct measurement ID for petal.tech stream | ✅ DONE |
+| Update Google Analytics Measurement ID | Set to `G-MQ21VFL7SE` (Production only) | **IMPORTANT**: Only set for Production env in Vercel. Code checks hostname and only runs on petal.tech/www.petal.tech. Old tag `G-16T7ZPMTWK` was deprecated. | ✅ UPDATED 2026-02-03 |
 | Migrate DNS to Vercel | Move nameservers from Squarespace to Vercel | petal.tech now managed by Vercel DNS | ✅ DONE |
 | Configure Google Workspace DNS | Add MX + SPF records in Vercel | Email continues working | ✅ DONE |
 | Configure Resend DNS | Add DKIM + SPF records in Vercel | Auth emails continue working | ✅ DONE |
