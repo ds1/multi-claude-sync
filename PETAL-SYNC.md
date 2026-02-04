@@ -22,6 +22,15 @@ Shared coordination file for Claude instances working on Petal projects.
 7. **IMPORTANT**: Log all commits and pushes to the "Commit/Push Log" section immediately after executing them. Include: hash, message, and any relevant comments.
 8. **IMPORTANT**: When an action requires dan to execute (migrations, env vars, deploys, etc.), add to "Dan Action Items" AND send a system notification using the Windows notification script in `multi-claude-sync/scripts/notify-windows.ps1`. Include: title, detailed steps, and context. Dan can respond via the notification (Acknowledge/Completed/Dismiss) and attach screenshots.
 
+**File Location & Efficiency Tips:**
+- **Canonical path**: `C:\Users\danma\Documents\GitHub\multi-claude-sync\PETAL-SYNC.md`
+- **Symlink** (if created): `C:\Users\danma\Documents\GitHub\PETAL-SYNC.md` → points to canonical path
+- **This file is large** (~1800 lines). To reduce context usage:
+  - Use `Grep` to search for specific sections (e.g., `Grep "## Attention Needed"`)
+  - Use `Read` with `offset` and `limit` params for specific line ranges
+  - Key sections: "User Input Needed" (~line 1500), "Attention Needed" (~line 1555), "Commit/Push Log" (~line 1300)
+  - Only read the full file if you need comprehensive context; otherwise, target specific sections
+
 ---
 
 ## API Contract
